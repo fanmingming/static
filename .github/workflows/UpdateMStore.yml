@@ -3,7 +3,6 @@ name: Mstore Update
 on:
   push:
   schedule:
-    - cron: 0 * * * *
 
 jobs:
   build:
@@ -12,7 +11,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: store.zip Update
       run: |
-        rm -f store.zip && wget https://codeload.github.com/fanmingming/static/zip/refs/heads/main -O store.zip
+        rm -f store.zip && wget https://github.com/fanmingming/static/archive/refs/heads/main.zip -O store.zip
         git config --global user.name fanmingming
         git config --global user.email mingming@live.com
         git add store.zip
