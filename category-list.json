@@ -1,7 +1,7 @@
 [
   {
-    "name": "Coolstore",
+    "name": "MStore",
     "font": "snow",
-    "description": ""
+    "description": "安装Cloudflared和Minecraft服务器。"
   }
 ]
