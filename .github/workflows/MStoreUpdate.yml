@@ -1,0 +1,25 @@
+name: Update app.zip
+
+on:
+  push:
+    branches:
+      - main  # 设置触发工作流的分支，你可以根据需要进行更改
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build app
+      run: |
+        zip -r app.zip ./*  # 打包当前目录下所有文件
+        echo "::set-output name=zip_path::app.zip"
+
+    - name: Upload app.zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-zip
+        path: ${{ steps.build.outputs.zip_path }}
