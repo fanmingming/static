@@ -1,0 +1,25 @@
+name: Build and Package
+
+on:
+  push:
+    branches:
+      - main  # 当 main 分支有代码推送时触发工作流程
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # 检出代码到工作目录
+
+      - name: Package project
+        run: |
+          # 将项目文件打包为 zip 压缩文件
+          # 这里是一个示例，具体命令要根据您的项目类型和需求来定
+          zip -r appstore.zip .
+
+      - name: Move package to root directory
+        run: |
+          # 将打包后的 zip 文件移动到根目录下
+          mv appstore.zip $GITHUB_WORKSPACE/appstore.zip
