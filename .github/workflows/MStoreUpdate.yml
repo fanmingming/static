@@ -1,4 +1,4 @@
-name: Update app.zip
+name: Upload app.zip
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Build app
       run: |
         zip -r app.zip ./*  # 打包当前目录下所有文件
-        echo "::set-output name=zip_path::app.zip"
+        echo "::set-output name=zip_path::./app.zip"  # 设置构建输出路径为 ./app.zip
 
     - name: Upload app.zip
       uses: actions/upload-artifact@v2
