@@ -2,7 +2,6 @@ name: Mstore Update
 
 on:
   push:
-  schedule:
 
 jobs:
   build:
