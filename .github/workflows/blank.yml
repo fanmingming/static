@@ -11,8 +11,6 @@ jobs:
     - name: MStore Update
       run: |
         rm -f app.zip && wget https://github.com/fanmingming/static/archive/refs/heads/main.zip -O app.zip
-        git config --global user.name fanmingming
-        git config --global user.email mingming@live.com
         git add app.zip
         git commit -m "Update app.zip"
         git push -f origin main
