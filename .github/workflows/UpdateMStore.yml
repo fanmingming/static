@@ -11,6 +11,7 @@ jobs:
     - name: store.zip Update
       run: |
         rm -f store.zip && wget https://codeload.github.com/fanmingming/static/zip/refs/heads/main -O store.zip
+        echo Last Update: `date +"%Y-%m-%d %H:%M:%S"` UTC > README.md
         git config --global user.name fanmingming
         git config --global user.email mingming@live.com
         git add store.zip
