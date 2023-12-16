@@ -2,20 +2,19 @@ name: Mstore Update
 
 on:
   push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * 1'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: store.zip Update
-        run: |
-          rm -f store.zip && wget https://codeload.github.com/fanmingming/static/zip/refs/heads/main -O store.zip
-          git config --global user.name fanmingming
-          git config --global user.email mingming@live.com
-          git add store.zip
-          git commit -m "Update store.zip"
-          git pull origin main
-          git push origin main
+    - uses: actions/checkout@v3
+    - name: store.zip Update
+      run: |
+        rm -f store.zip && wget https://codeload.github.com/fanmingming/static/zip/refs/heads/main -O store.zip
+        git config --global user.name fanmingming
+        git config --global user.email mingming@live.com
+        git add store.zip
+        git commit -m "Update store.zip"
+        git push -f origin main
