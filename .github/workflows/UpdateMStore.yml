@@ -2,9 +2,7 @@ name: Mstore Update
 
 on:
   push:
-  schedule:
-    - cron: '0 0 * * 1'
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
